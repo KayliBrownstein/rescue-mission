@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Back', questions_path %>
+<p>
+  <strong>Title:</strong>
+  <%= @question.title %>
+
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @question.description %>
+</p>
+<div class='actions'>
+  <%= link_to 'Edit', edit_question_path(@question) %>
+</div>
+
+<h3>Answers:</h3>
+<p>
+  <% @question.answers.each do |answer| %>
+    <ul>
+      <li><%= answer.description %></li>
+    </ul>
+  <% end %>
+
+</p>
+
+<h5>New Answer:</h5>
+
+<%= render :partial => 'answers/form' %>
